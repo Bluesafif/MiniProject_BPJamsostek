@@ -36,7 +36,7 @@ func GetListEmployment(db *sql.DB, userParam in.Employment) (result []interface{
 			"	id, job_title, employer, " +
 			" 	start_date, end_date, city, " +
 			"	description " +
-			" FROM education " +
+			" FROM employment " +
 			" WHERE profile_code = $1 AND deleted = FALSE "
 
 	param := []interface{}{userParam.ID}
@@ -74,7 +74,7 @@ func GetListEmployment(db *sql.DB, userParam in.Employment) (result []interface{
 func DeleteEmployment(db *sql.DB, userParam repository.EmploymentModel) (err error) {
 
 	query :=
-		" UPDATE education " +
+		" UPDATE employment " +
 			" SET " +
 			" updated_at = $1, deleted = TRUE " +
 			" WHERE " +
